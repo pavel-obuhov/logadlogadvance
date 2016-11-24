@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ObuhovPavel_AdvancedLogging>
+            <version>1.0.0</version>
+        </ObuhovPavel_AdvancedLogging>
+    </modules>
+    <global>
+        <helpers>
+            <obuhovpavel_advancedlogging>
+                <class>ObuhovPavel_AdvancedLogging_Helper</class>
+            </obuhovpavel_advancedlogging>
+        </helpers>
+        <models>
+            <obuhovpavel_advancedlogging>
+                <class>ObuhovPavel_AdvancedLogging_Model</class>
+            </obuhovpavel_advancedlogging>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <cron_send_frequency>
+                <schedule>
+                    <cron_expr>*/1 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>obuhovpavel_advancedlogging/observer::sendLogs</model>
+                </run>
+            </cron_send_frequency>
+        </jobs>
+    </crontab>
+</config>
+
